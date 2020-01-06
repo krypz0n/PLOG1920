@@ -1,0 +1,57 @@
+Problemas de otimização
+Seguem-se as descrições dos problemas. As abordagens devem permitir problemas com
+diferentes dimensões. São valorizadas experiências com dimensões elevadas. Deve ser possível
+visualizar a solução em modo de texto, de uma forma que facilite a sua validação.
+
+
+
+16. Planeamento de Estudo
+O Asdrúbal e os seus colegas necessitam de planear o seu estudo, fazendo a alocação de tempo
+disponível para cada cadeira. Cada um tem 10 slots disponíveis por dia, seis dias por semana,
+sendo necessário alocar tempo para estudo individual, e para trabalhos em grupo. Cada unidade
+curricular tem requisitos de estudo individual semanal, e para trabalhos de grupo, sendo que
+estes necessitam de estar concluídos na data limite respetiva. Os grupos de trabalho podem ser
+diferentes em cadeiras diferentes, sendo necessário coordenar entre os colegas quando cada
+trabalho é executado.
+
+Por exemplo, em Estimativas de Sofrimento (ESOF) estima-se a necessidade de 3h de trabalho
+individual semanal, havendo ainda 2 trabalhos de grupo, sendo os prazos limite o dia 12 e o dia
+24, respetivamente. Para o primeiro são necessárias 16h de trabalho e para o segundo 24h. O
+Asdrúbal e a Felismina estão no mesmo grupo, sendo que a Bernardete e o Eleutério formam
+outro grupo, e a Cristalina e o Demétrio outro. Estes seis colegas estão inscritos noutras
+cadeiras, como Realidade Comatosa (RCOM), Luau de Animação e Interação Gestual (LAIG),
+entre outras, cada uma delas tendo requisitos diferentes de tempos individuais e de trabalhos
+de grupo. Os grupos de trabalho podem ser diferentes em cada cadeira, e os colegas podem
+estar inscritos em cadeiras diferentes. O trabalho individual semanal pode ser adiado, mas por
+cada hora de trabalho que transita para a semana seguinte, é necessária meia hora de estudo
+adicional. Por exemplo, se o Asdrúbal apenas alocar 2h de estudo individual para ESOF na
+primeira semana, terá 4.5h de estudo acumuladas para a semana seguinte.
+
+O Asdrúbal e os colegas querem otimizar o tempo, maximizando o tempo livre de cada um deles
+(de forma equilibrada entre todos e ao longo das semanas), e tentando que os trabalhos sejam
+entregues no prazo (podem ser entregues depois, mas existe uma forte penalização nesses
+casos).
+Modele este problema como um problema de otimização / satisfação de restrições e resolva-o
+em PLR de forma a ser possível satisfazer problemas desta classe com diferentes parâmetros.
+
+
+
+Inputs iniciais:
+    nº Alunos
+    Cadeiras (nº de horas de estudo individual,x trabalhos, cada um com data de entrega, grupo pessoas, nº de horas necessarias)
+    CADEIRA/
+    Tempo planeado
+    
+Inputs "intermedios":
+    Horas gastas até agora de cada aluno pa cada trabalho individual/de grupo
+    Data atual
+
+
+Outputs:
+    Slots alocados de cada aluno: 
+        10/dia, 6dias/semana, podendo ser estudo individual ou para trabalhos de grupo 
+
+
+Começar com problema mais simplificado e ir adicionando
+
+Para testar, testar o maior numero de combinaçoes diferentes, pa saber o que influencia o tempo/complexidade de resolução

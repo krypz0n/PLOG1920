@@ -13,9 +13,10 @@ manual_input(StudentList,NoStudents,ClassList,ClassNo) :-
     get_clean_int(NoStudents), nl,
     StudentAux is (NoStudents + 1),
     create_students(NoStudents, StudentAux, StudentList),
-    write('Class Amount: '),
-    get_clean_int(ClassNo), nl,
-    length(ClassList, ClassNo).
+    write('Students Created!'),nl.
+    %write('Class Amount: '),
+    %get_clean_int(ClassNo), nl,
+    %length(ClassList, ClassNo).
     %create_classes(ClassNo, StudentList, ClassList). %not implemented yet
 
 % Creates the Students with inputs from the user % MISSING somethings
@@ -26,20 +27,36 @@ create_students(NoStudents, StudentAux, [Student | RestOfStudentList])  :-
     write('Student #'), write(StudentNumber), nl,
     write('-----------'), nl, 
     write('Number of Classes: '), get_clean_int(NoClasses), nl,
-    NoClassesAux is (NoClasses + 1),
-    assign_classes(NoClasses,NoClassesAux,ClassListStudentAux,ClassListStudent),
+    assign_classes(NoClasses,ClassListStudent),
+    write('Showing class list: '),nl,
+    show_list_elements(ClassListStudent),
     Student = [NoClasses, ClassListStudent], 
     NoStudentAux is (NoStudents - 1),
+    
     create_students(NoStudentAux, StudentAux, RestOfStudentList).
 
-% Allows user to select the Students Attending Classes % isto ta a bater mal
-assign_classes(0,_,_,ClassListStudent).
-assign_classes(NoClasses,NoClassesAux,ClassListStudentAux,ClassListStudent) :-
-    write('NoClasses #'), write(NoClasses), nl,
-    write('-----------'), nl,
+% Allows user to select the Students Attending Classes % isto ta a bater mal, pensar melhor
+assign_classes(0,_).
+assign_classes(NoClasses,ClassListStudent) :-
+    NoClassesAux is (NoClasses - 1),
+    write('NoClassesAux #'), write(NoClassesAux),nl,
     write('Class Name/ID #'), get_clean_int(ClassID), nl,
     append(ClassListStudent,[ClassID],ClassListStudentAux),
-    NoClassesAux is(NoClasses -1),
-    assign_classes(NoClassesAux,NoClassesAux,ClassListStudentAux,ClassListStudentAux).
+    assign_classes(NoClassesAux,ClassListStudentAux).
+
+
+show_list_elements([]) :-
+    nl.
+show_list_elements([A|B]) :-
+  write('ClassID: '),write(A),write(' '),
+  show_list_elements(B).
+
+%
 
 %append(?List1, ?List2, ?List1AndList2)
+
+%write('NoClasses #'), write(NoClasses), nl,
+%write('-----------'), nl,
+%write('Class Name/ID #'), get_clean_int(ClassID), nl,
+%append(ClassListStudent,[ClassID],ClassListStudentAux),
+%NoClassesAux is(NoClasses -1),
